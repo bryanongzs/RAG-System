@@ -82,7 +82,6 @@ What I take from this:
 
 On an earlier version of the question set (41 answerable, 9 unanswerable) with plain dense retrieval and the 3B model, the model refused to answer **22% of answerable questions** and correctly refused **89% of unanswerable ones**. Refusal rate is a crude proxy: it does not measure whether the non-refusals were correct or faithful.
 
-<!-- TODO: rerun `python eval/run_eval.py --name gen_final --hybrid --rerank --generate` and update these numbers -->
 
 ## What failed, and what I learned
 
@@ -105,8 +104,8 @@ On an earlier version of the question set (41 answerable, 9 unanswerable) with p
 Requires Python 3.10+ and [Ollama](https://ollama.com) for answer generation. Retrieval and evaluation work without it.
 
 ```bash
-git clone https://github.com/bryan-machine-learning/RAG-System.git
-
+git clone https://github.com/bryanongzs/RAG-System.git
+cd RAG-System
 
 python -m venv .venv
 source .venv/bin/activate          # Windows: .venv\Scripts\activate
@@ -233,6 +232,7 @@ Results are saved to `eval/results/<name>.json`, including the list of missed qu
 - [x] Unit and API tests
 - [x] Dockerfile for the API
 - [ ] Held-out set of hand-written questions, scored once with the final setup
+- [ ] Rerun the generation evaluation with the final hybrid + reranker setup (the refusal rates above are from an earlier version)
 - [ ] Answer-quality evaluation (faithfulness and correctness, with manual spot checks)
 - [ ] Compare the 3B local model against a larger hosted model
 - [ ] Chunking experiments (size, overlap, sentence-aware splitting)
